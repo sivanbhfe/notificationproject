@@ -1,11 +1,3 @@
-#tabletitle{
-	font-size: 50px;
-	font-family: 'calibri';
-	color:rgb(102, 148, 102);
-	text-align: center;
-	height: 100px;
-}
-
 #tableticket{
 	font-size: 20px;
 	font-family: 'calibri';
@@ -14,8 +6,6 @@
 	font-weight: bold;
 	text-align: left;
 }
-
-
 .rowname{
 	font-size: 20px;
 	font-family: 'calibri';
@@ -25,10 +15,14 @@
 }
 
 .inputtitle{
-	width: 1000px !important;
+	width: 1050px !important;
 	margin: 10px;
 }
 .inputplatform{
-	width: 1000px !important;
+	width: 1050px !important;
+	margin: 10px;
+}
+.inputfields{
+	width:200px !important;
 	margin: 10px;
 }
