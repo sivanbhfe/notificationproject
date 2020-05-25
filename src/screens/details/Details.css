@@ -6,6 +6,21 @@
 	font-weight: bold;
 	text-align: left;
 }
+
+.outageholiday{
+	color:rgb(51, 153, 255);
+}
+
+.emergencyseverity{
+	color:rgb(255, 0, 0);
+}
+
+.Completed{
+	color:rgb(76, 153, 0);
+}
+.Resolved{
+	color:rgb(76, 153, 0);
+}
 .rowname{
 	font-size: 20px;
 	font-family: 'calibri';
