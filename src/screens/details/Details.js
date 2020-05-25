@@ -25,7 +25,8 @@ class Details extends Component {
 		starttime:"",
 		endtime:"",
 		type:"",
-		notitype:"Select a notification type"
+		notitype:"Select a notification type",
+		startendcombine:""
 		}
 	//	this.seePreview = this.seePreview.bind(this);
 	}
@@ -47,7 +48,8 @@ class Details extends Component {
 	}
 
 	statusupdate = (e)=> {
-		this.setState({ status: e.target.value })
+		this.setState({ status: e.target.value,
+			startendcombine:e.target.value })
 	}
 
 	incidentmanagerupdate = (e)=> {
@@ -166,7 +168,7 @@ class Details extends Component {
 				</FormControl>
 				<FormControl>
 					<select onChange={this.statusupdate} style={{width:"220px",height:"40px", fontSize:"16px", fontWeight:"bold"}} id="notistatus">
-						<option value="default">Selet status</option>
+						<option value="default">Select status</option>
 						<option value="Open">Open</option>
 						<option value="Completed">Completed</option>
 						<option value="Resolved">Resolved</option>
@@ -226,9 +228,16 @@ class Details extends Component {
 		<tr><td style={{textAlign:"right",fontFamily: "calibri",fontWeight:"bold", fontSize:"20px"}} 
 		id="tablestatus" >Status</td>
 		<td style={{fontFamily: "calibri",fontSize:"16px"}}>{this.state.status}</td></tr>
-		<tr><td style={{textAlign:"right",fontFamily: "calibri",fontWeight:"bold", fontSize:"20px"}} 
-		id="tabletime" >Start time & End time</td>
+				
+		<tr className={this.state.startendcombine}><td style={{textAlign:"right",fontFamily: "calibri",fontWeight:"bold", fontSize:"20px"}}	id="tablestarttime" >Start time</td>
+		<td style={{fontFamily: "calibri",fontSize:"16px"}}>{this.state.starttime}</td></tr>
+		<tr className={this.state.startendcombine}><td style={{textAlign:"right",fontFamily: "calibri",fontWeight:"bold", fontSize:"20px"}} 
+		id="tableendtime" >End time</td>
+		<td style={{fontFamily: "calibri",fontSize:"16px"}}>{this.state.endtime}</td></tr> 
+		<tr className={this.state.startendcombine===""?"hide":this.state.startendcombine}><td style={{textAlign:"right",fontFamily: "calibri",fontWeight:"bold", fontSize:"20px"}} 
+		id="tablestarttime" >Start time & End time</td>
 		<td style={{fontFamily: "calibri",fontSize:"16px"}}>{this.state.starttime}<span> to </span>{this.state.endtime}</td></tr>
+		
 		{this.state.incidentmanager!=="" ?
 		<tr><td style={{textAlign:"right",fontFamily: "calibri",fontWeight:"bold", fontSize:"20px"}} 
 		id="tabletime" >Incident Manager</td>

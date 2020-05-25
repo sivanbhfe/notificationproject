@@ -41,3 +41,10 @@
 	width:200px !important;
 	margin: 10px;
 }
+.hide{
+	display:none;
+}
+
+.displayonecell{
+	color:black;
+}
