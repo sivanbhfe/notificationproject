@@ -107,6 +107,7 @@ class Details extends Component {
 			
 			<div style={{marginBottom:"20px", display:"flex", width:"50%"}}>
 				<form>
+					
 					<FormControl>
 					<select onChange={this.notitypeupdate} style={{width:"220px",height:"40px", fontSize:"16px", fontWeight:"bold"}} id="notificationtype">
 						<option value="default">Selet a notification type</option>
