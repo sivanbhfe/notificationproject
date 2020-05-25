@@ -16,7 +16,7 @@ class Details extends Component {
 		jiraticket:"",
 		snticket:"",
 		webstarticket:"",
-		status:"",
+		status:"Select status",
 		htmlData:"",
 		timewindow:"",
 		summary:"",
@@ -25,7 +25,7 @@ class Details extends Component {
 		starttime:"",
 		endtime:"",
 		type:"",
-		notitype:""
+		notitype:"Select a notification type"
 		}
 	//	this.seePreview = this.seePreview.bind(this);
 	}
@@ -69,11 +69,35 @@ class Details extends Component {
 	notitypeupdate  = (e)=> {
 		this.setState({ notitype: e.target.value })
 	}
-	seePreview=()=>{	
+	sendmail=()=>{	
 		alert("test");	
 
+		if(this.state.notitype==="Select a notification type"){
+			alert("Please select a valid notification type");
+			return;
+		}
+
+		if(this.state.status==="Select status"){
+			alert("Please select a valid status");
+			return;
+		}
+
+		if(this.state.title===""){
+			alert("Notification title cannot be empty");
+			return;
+		}
+
+		if(this.state.platform===""){
+			alert("Platform details cannot be empty");
+			return;
+		}
+
+		if(this.state.starttime===""){
+			alert("Start time cannot be empty");
+			return;
+		}
 		
-		let previewdata = JSON.stringify({
+		let notidata = JSON.stringify({
 			"title": this.state.title,
 			"platform": this.state.platform,
 			"jira": this.state.jiraticket,
@@ -84,6 +108,7 @@ class Details extends Component {
 			"incimanageremail": this.state.incidentmanageremail,
 			"starttime":this.state.starttime,
 			"endtime":this.state.endtime,
+			"notitype":this.state.notitype
 
 		});
 			let that = this;
@@ -98,7 +123,7 @@ class Details extends Component {
 		
 		xhr.open("POST", "http://localhost:8080/users");
 		xhr.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
-		xhr.send(previewdata);
+		xhr.send(notidata);
 	}
 	render() {
 		
@@ -170,8 +195,8 @@ class Details extends Component {
 		<label style={{fontFamily:"calibri", fontWeight:"bold"}} for="summary">{this.state.type} Summary</label>
   				<input onChange={this.summaryupdate} style={{height:"150px",width:"860px"}} type="text" id="summary" name="summary"></input>
 </FormControl><br/><br/>
-				<Button onClick={this.seePreview} style={{ marginLeft:"30%", fontWeight:"bold", fontSize: "100%", height:"50px" }} variant="contained" color="default" >
-					Create Preview</Button>
+				<Button onClick={this.sendmail} style={{ marginLeft:"30%", fontWeight:"bold", fontSize: "100%", height:"50px" }} variant="contained" color="default" >
+					Send mail</Button>
 					</form>
 				<span>{this.state.htmlData}</span></div>
 					
