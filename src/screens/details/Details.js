@@ -49,7 +49,8 @@ class Details extends Component {
 
 	statusupdate = (e)=> {
 		this.setState({ status: e.target.value,
-			startendcombine:e.target.value })
+			startendcombine:e.target.value 
+		})
 	}
 
 	incidentmanagerupdate = (e)=> {
@@ -110,7 +111,8 @@ class Details extends Component {
 			"incimanageremail": this.state.incidentmanageremail,
 			"starttime":this.state.starttime,
 			"endtime":this.state.endtime,
-			"notitype":this.state.notitype
+			"notitype":this.state.notitype,
+			"summary":this.state.summary
 
 		});
 			let that = this;
@@ -229,12 +231,12 @@ class Details extends Component {
 		id="tablestatus" >Status</td>
 		<td style={{fontFamily: "calibri",fontSize:"16px"}}>{this.state.status}</td></tr>
 				
-		<tr className={this.state.startendcombine}><td style={{textAlign:"right",fontFamily: "calibri",fontWeight:"bold", fontSize:"20px"}}	id="tablestarttime" >Start time</td>
+		<tr className={"open"+this.state.startendcombine}><td style={{textAlign:"right",fontFamily: "calibri",fontWeight:"bold", fontSize:"20px"}}	id="tablestarttime" >Start time</td>
 		<td style={{fontFamily: "calibri",fontSize:"16px"}}>{this.state.starttime}</td></tr>
-		<tr className={this.state.startendcombine}><td style={{textAlign:"right",fontFamily: "calibri",fontWeight:"bold", fontSize:"20px"}} 
+		<tr className={"open"+this.state.startendcombine}><td style={{textAlign:"right",fontFamily: "calibri",fontWeight:"bold", fontSize:"20px"}} 
 		id="tableendtime" >End time</td>
 		<td style={{fontFamily: "calibri",fontSize:"16px"}}>{this.state.endtime}</td></tr> 
-		<tr className={this.state.startendcombine===""?"hide":this.state.startendcombine}><td style={{textAlign:"right",fontFamily: "calibri",fontWeight:"bold", fontSize:"20px"}} 
+		<tr className={"completed"+this.state.startendcombine}><td style={{textAlign:"right",fontFamily: "calibri",fontWeight:"bold", fontSize:"20px"}} 
 		id="tablestarttime" >Start time & End time</td>
 		<td style={{fontFamily: "calibri",fontSize:"16px"}}>{this.state.starttime}<span> to </span>{this.state.endtime}</td></tr>
 		

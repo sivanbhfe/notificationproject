@@ -48,3 +48,16 @@
 .displayonecell{
 	color:black;
 }
+
+.openCompleted{
+display:none;
+}
+
+.openResolved{
+	display:none;
+}
+
+.completedOpen{
+	display:none
+}
+	
