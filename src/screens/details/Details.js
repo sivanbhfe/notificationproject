@@ -125,7 +125,8 @@ class Details extends Component {
 			 }
 		};
 		
-		xhr.open("POST", "http://localhost:8080/users");
+	//	xhr.open("POST", "http://localhost:8080/users");
+		xhr.open("POST", "http://localhost:8080/demo/users");
 		xhr.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
 		xhr.send(notidata);
 	}
